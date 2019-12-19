@@ -71,7 +71,11 @@ namespace TechJobsConsole
                 {
                     jobs.Add(row);
                 }
+                if(aValue.ToLower().Contains(value) && !jobs.Contains(row)){
+                    jobs.Add(row);
+                }
             }
+            
 
             return jobs;
         }

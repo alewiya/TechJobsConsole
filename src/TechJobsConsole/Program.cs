@@ -66,11 +66,23 @@ namespace TechJobsConsole
                         searchResults = JobData.FindByValue(searchTerm);
                         PrintJobs(searchResults);
                     }
-                    else
+                    else 
                     {
                         searchResults = JobData.FindByColumnAndValue(columnChoice, searchTerm);
                         PrintJobs(searchResults);
                     }
+                    // i add new to check and validate the serchitem if donsn't exit in the column or in row
+                    /*if (searchResults != JobData.FindByValue(searchTerm))
+                    {
+                        Console.WriteLine("No result");
+                    }*/
+                    if (searchResults != JobData.FindByColumnAndValue(columnChoice, searchTerm))
+                    {
+                        Console.WriteLine("No result");
+                    }
+                    
+
+
                 }
             }
         }

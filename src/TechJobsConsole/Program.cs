@@ -76,11 +76,11 @@ namespace TechJobsConsole
                     {
                         Console.WriteLine("No result");
                     }*/
-                    if (searchResults != JobData.FindByColumnAndValue(columnChoice, searchTerm))
-                    {
-                        Console.WriteLine("No result");
-                    }
-                    
+                    /*  if (searchResults != JobData.FindByColumnAndValue(columnChoice, searchTerm))
+                      {
+                          Console.WriteLine("No result");
+                      }*/
+
 
 
                 }
@@ -132,17 +132,32 @@ namespace TechJobsConsole
         private static void PrintJobs(List<Dictionary<string, string>> someJobs)
 
         {
-            foreach (var job in someJobs)
+           
+            if (someJobs.Count < 1)
             {
-                Console.WriteLine("********************");
-                Console.WriteLine("      ");
-                foreach (var KeyValuePair in job)
+                Console.WriteLine("*****");
+                Console.WriteLine("Search term is not found.");
+                
+                Console.WriteLine("*****");
+
+            }
+           
+                
+                else
                 {
-                    Console.WriteLine(KeyValuePair.Key +":" + KeyValuePair.Value);
+                foreach (var job in someJobs) {
+
+                    Console.WriteLine("**************************");
+
+                    foreach (var KeyValuePair in job)
+                    {
+                        Console.WriteLine(KeyValuePair.Key + ":" + KeyValuePair.Value);
+                    }
+
+                    Console.WriteLine("");
+                    Console.WriteLine(" ");
+                    Console.WriteLine(String.Format("Your input yielded {0} results", someJobs.Count));
                 }
-                Console.WriteLine("");
-                Console.WriteLine(" ");
-                Console.WriteLine(String.Format("Your input yielded {0} results", someJobs.Count));
             }
         }
     }
